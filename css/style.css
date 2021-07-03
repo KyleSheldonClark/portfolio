@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*----Header----*/
+header {
+  background-image: url('../images/snowy-trees-copy.jpg');
+  height: 100vh;
+}
+
+header h1, a {
+  color: white;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+
+.color-layer {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(242, 0, 137, 0.95), rgba(229, 0, 164, 0.7));
+  /*-webkit-backdrop-filter: blur(5px);*/
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation li {
+  font-size: 2rem;
+  margin: 2rem 3rem;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
