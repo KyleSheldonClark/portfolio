@@ -60,9 +60,14 @@ header h1, a {
   color: white;
 }
 
+
 h1 {
   font-size: 6rem;
   font-family: 'Roboto';
+}
+
+#name {
+  opacity: 1;
 }
 
 
@@ -95,13 +100,48 @@ h1 {
   height: 50vh;
   width: 50vw;
   background-image: url('../images/snowy-trees-copy.jpg');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
+  /*#arrow {
+    position: relative;
+    top: 0;
+  }
+  #arrow:hover {
+    top: -10px;
+  }*/
+
 .project-description {
-  height: 100%;
+  transition: height 1s;
+  height: 20%;
   width: 100%;
-  background-image: linear-gradient(rgba(242, 0, 137, 0.95), rgba(229, 0, 164, 0.7));
+  background-image: linear-gradient(rgba(219, 0, 182, 0.95), rgba(188, 0, 221, 0.7));
   z-index: 1;
+}
+
+
+.project-description h2 {
+  font-size: 2rem;
+  color: white;
+}
+
+.project-description p {
+  transition: color 0.5s ease-out 0;
+  transition-delay: 0.5s;
+  color: rgba(255, 255, 255, 0);
+  margin-top: 4rem;
+
+}
+
+.project:hover .project-description p {
+      color: rgba(255, 255, 255, 1);
+}
+
+.project:hover .project-description {
+      height: 100%;
 }
 
 #projects {

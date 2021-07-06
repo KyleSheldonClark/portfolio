@@ -11,9 +11,9 @@
   </head>
   <body>
     <header>
-      <div class="color-layer">
+      <div class="color-layer" id="color-layer">
         <div class="title-container">
-          <h1>Kyle Sheldon Clark</h1>
+          <h1 id="name">Kyle Sheldon Clark</h1>
           <nav class="navigation">
             <ul>
               <li><a href="https://github.com/KyleSheldonClark" target="_blank">Github</a></li>
@@ -30,25 +30,45 @@
     <section id="projects">
       <div class="project">
         <div class="project-description">
-
+          <h2>Project #1</h2>
+          <p>Description cool project lealalallalla</p>
         </div>
       </div>
       <div class="project">
         <div class="project-description">
-
+          <h2>Project #2</h2>
         </div>
       </div>
       <div class="project">
         <div class="project-description">
-
+          <h2>Project #3</h2>
         </div>
       </div>
       <div class="project">
         <div class="project-description">
-
+          <h2>Project #4</h2>
         </div>
       </div>
     </section>
+    <script type="text/javascript">
+      //reduces opacity of h1 name on scroll
+      function scrollFadeOut() {
+        let element = document.querySelector('.color-layer');
+        let distanceFromTop = window.pageYOffset + element.getBoundingClientRect().top;
+        let elementHeight = element.offsetHeight;
+        let scrollTop = document.documentElement.scrollTop;
 
+        let opacity = 1;
+
+        if (scrollTop > distanceFromTop) {
+          opacity = 1 - ((scrollTop - distanceFromTop) / elementHeight)*2.3;
+        }
+        let newElement = document.getElementById('name');
+        newElement.style.opacity = opacity;
+      }
+
+      //----TODO----May cause performance issues find better solution
+      window.addEventListener('scroll', scrollFadeOut)
+    </script>
   </body>
 </html>
