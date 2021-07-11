@@ -12,6 +12,15 @@
   <body>
     <header>
       <div class="color-layer" id="color-layer">
+        <div class="hidden-nav">
+          <nav>
+            <ul>
+              <li><a href="https://github.com/KyleSheldonClark" target="_blank">Github</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
         <div class="title-container">
           <h1 id="name">Kyle Sheldon Clark</h1>
           <nav class="navigation">
@@ -66,6 +75,7 @@
         let newElement = document.getElementById('name');
         newElement.style.opacity = opacity;
       }
+
 
       //----TODO----May cause performance issues find better solution
       window.addEventListener('scroll', scrollFadeOut)
