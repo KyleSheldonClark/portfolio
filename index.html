@@ -12,7 +12,7 @@
   <body>
     <header>
       <div class="color-layer" id="color-layer">
-        <div class="hidden-nav">
+        <div class="show-nav">
           <nav>
             <ul>
               <li><a href="https://github.com/KyleSheldonClark" target="_blank">Github</a></li>
@@ -76,9 +76,25 @@
         newElement.style.opacity = opacity;
       }
 
+      function scrollNav() {
+        let element = document.querySelector('.navigation');
+        let distanceFromTop = window.pageYOffset + element.getBoundingClientRect().top;
+        let elementHeight = element.offsetHeight;
+        let scrollTop = document.documentElement.scrollTop;
+
+        if (distanceFromTop <= scrollTop) {
+          console.log('hello');
+          document.querySelector('.show-nav').style.display = 'flex';
+        } else if (distanceFromTop > scrollTop) {
+          document.querySelector('.show-nav').style.display = 'none';
+        }
+      }
 
       //----TODO----May cause performance issues find better solution
-      window.addEventListener('scroll', scrollFadeOut)
+      window.addEventListener('scroll', () => {
+        scrollFadeOut();
+        scrollNav();
+      })
     </script>
   </body>
 </html>
