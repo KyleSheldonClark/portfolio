@@ -70,10 +70,12 @@
         let opacity = 1;
 
         if (scrollTop > distanceFromTop) {
-          opacity = 1 - ((scrollTop - distanceFromTop) / elementHeight)*2.3;
+          opacity = 1 - ((scrollTop - distanceFromTop) / elementHeight)*1;
         }
         let newElement = document.getElementById('name');
+        let navBar = document.querySelector('.navigation');
         newElement.style.opacity = opacity;
+        navBar.style.opacity = opacity;
       }
 
       function scrollNav() {
