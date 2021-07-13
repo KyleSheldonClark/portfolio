@@ -66,6 +66,9 @@
       </div>
     </section>
     <script type="text/javascript">
+      let projectNumber = 1;
+
+
       //reduces opacity of h1 name on scroll
       function scrollFadeOut() {
         let element = document.querySelector('.color-layer');
@@ -114,11 +117,18 @@
         projects[projectNumber-1].style.display = 'block';
       }
 
+      function nextProject(number) {
+        projectNumber += number;
+      }
+
       //----TODO----May cause performance issues find better solution
       window.addEventListener('scroll', () => {
         scrollFadeOut();
         scrollNav();
       })
+      showProject(projectNumber);
+      document.querySelector('.next').addEventListener('click', showProject(1));
+      document.querySelector('.previous').addEventListener('click', showProject(-1));
     </script>
   </body>
 </html>
