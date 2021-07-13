@@ -50,7 +50,7 @@ header {
   height: 100vh;
 }
 
-.fa-chevron-down {
+.arrow-container .fa-chevron-down {
   font-size: 3rem;
   color: rgba(255, 255, 255, 0.7);
   animation: jump 4s infinite;
@@ -124,11 +124,15 @@ h1 {
 }
 
 /*----Projects----*/
-.project {
+section {
+  height: 100vh;
+}
+
+.project-slide {
   height: 50vh;
   width: 50vw;
   background-image: url('../images/snowy-trees-copy.jpg');
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
@@ -164,12 +168,34 @@ h1 {
 
 }
 
-.project:hover .project-description p {
+.project-slide:hover .project-description p {
       color: rgba(255, 255, 255, 1);
 }
 
-.project:hover .project-description {
+.project-slide:hover .project-description {
       height: 100%;
+}
+
+.next, .previous {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 50vw;
+}
+
+.previous {
+  justify-content: flex-start;
+}
+
+.next {
+  justify-content: flex-end;
+  right: 0;
+}
+
+.next .fa-chevron-down {
+  justify-content: flex-end;
 }
 
 #projects {
@@ -180,9 +206,14 @@ h1 {
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
+  background-color: black;
 }
 
 #projects img {
   height: 50vh;
   width: 50vw;
+}
+
+#projects .fa-chevron-down {
+  float: right;
 }
