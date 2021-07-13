@@ -37,23 +37,25 @@
       </div>
     </header>
     <section id="projects">
-      <div class="project-slide">
+      <div class="project-slide1">
+        <img src="./images/snowy-trees-copy.jpg" alt="">
         <div class="project-description">
           <h2>Project #1</h2>
           <p>Description cool project lealalallalla</p>
         </div>
       </div>
-      <div class="project-slide">
+      <div class="project-slide1">
+        <img src="./images/code.jpg" alt="">
         <div class="project-description">
           <h2>Project #2</h2>
         </div>
       </div>
-      <div class="project-slide">
+      <div class="project-slide1">
         <div class="project-description">
           <h2>Project #3</h2>
         </div>
       </div>
-      <div class="project-slide">
+      <div class="project-slide1">
         <div class="project-description">
           <h2>Project #4</h2>
         </div>
@@ -66,7 +68,8 @@
       </div>
     </section>
     <script type="text/javascript">
-      let projectNumber = 1;
+      let project = 1;
+      showProject(project);
 
 
       //reduces opacity of h1 name on scroll
@@ -102,23 +105,26 @@
       }
 
       function showProject(projectNumber) {
-        const projects = getElementsByClassName('project-slides');
+        const projects = document.getElementsByClassName('project-slide1');
+        console.log(projectNumber)
+        console.log(projects.length)
 
         if (projectNumber > projects.length) {
-          projectNumber = 1;
-        } else if (projectNumber < 1) {
-          projectNumber = projects.length;
+          project = 1;
+        }
+        if (projectNumber < 1) {
+          project = projects.length;
         }
 
         for (let i = 0; i < projects.length; i++) {
           projects[i].style.display = 'none';
         }
 
-        projects[projectNumber-1].style.display = 'block';
+        projects[project-1].style.display = 'block';
       }
 
       function nextProject(number) {
-        projectNumber += number;
+        showProject(project += number);
       }
 
       //----TODO----May cause performance issues find better solution
@@ -126,9 +132,12 @@
         scrollFadeOut();
         scrollNav();
       })
-      showProject(projectNumber);
-      document.querySelector('.next').addEventListener('click', showProject(1));
-      document.querySelector('.previous').addEventListener('click', showProject(-1));
+      document.querySelector('.next').addEventListener('click', () => {
+        nextProject(1);
+      });
+      document.querySelector('.previous').addEventListener('click', () => {
+        nextProject(-1);
+      });
     </script>
   </body>
 </html>
