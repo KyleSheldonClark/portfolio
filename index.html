@@ -98,6 +98,22 @@
         }
       }
 
+      function showProject(projectNumber) {
+        const projects = getElementsByClassName('project-slides');
+
+        if (projectNumber > projects.length) {
+          projectNumber = 1;
+        } else if (projectNumber < 1) {
+          projectNumber = projects.length;
+        }
+
+        for (let i = 0; i < projects.length; i++) {
+          projects[i].style.display = 'none';
+        }
+
+        projects[projectNumber-1].style.display = 'block';
+      }
+
       //----TODO----May cause performance issues find better solution
       window.addEventListener('scroll', () => {
         scrollFadeOut();
