@@ -133,11 +133,17 @@
         scrollNav();
       })
       document.querySelector('.next').addEventListener('click', () => {
+        clearInterval(automaticScroll);
         nextProject(1);
       });
       document.querySelector('.previous').addEventListener('click', () => {
+        clearInterval(automaticScroll);
         nextProject(-1);
       });
+      //currently stops automatic scroll if next or previous buttons are clicked
+      let automaticScroll = window.setInterval(() => {
+        nextProject(1);
+      }, 5.0*1000);
     </script>
   </body>
 </html>
