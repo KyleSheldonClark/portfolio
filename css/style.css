@@ -45,8 +45,10 @@ a {
   font-size: 2rem;
 }
 
+
 header {
   background-image: url('../images/snowy-trees-copy.jpg');
+  background-attachment: fixed;
   height: 100vh;
 }
 
@@ -212,6 +214,7 @@ h1 {
 #projects {
   height: 90vh;
   width: 100vw;
+  background-color: black;
   display: flex;
   position: relative;
   flex-direction: row;
