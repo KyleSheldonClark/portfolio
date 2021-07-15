@@ -37,25 +37,27 @@
       </div>
     </header>
     <section id="projects">
-      <div class="project-slide1">
+      <div class="project-slide1" id="1">
         <img src="./images/snowy-trees-copy.jpg" alt="">
         <div class="project-description">
           <h2>Project #1</h2>
-          <p>Description cool project lealalallalla</p>
+          <p>Description</p>
         </div>
       </div>
-      <div class="project-slide1">
+      <div class="project-slide1" id="2">
         <img src="./images/code.jpg" alt="">
         <div class="project-description">
           <h2>Project #2</h2>
         </div>
       </div>
-      <div class="project-slide1">
+      <div class="project-slide1" id="3">
+        <img src="./images/snowy-trees-copy.jpg" alt="">
         <div class="project-description">
           <h2>Project #3</h2>
         </div>
       </div>
-      <div class="project-slide1">
+      <div class="project-slide1" id="4">
+        <img src="./images/code.jpg" alt="">
         <div class="project-description">
           <h2>Project #4</h2>
         </div>
@@ -69,6 +71,7 @@
     </section>
     <script type="text/javascript">
       let project = 1;
+      //something();
       showProject(project);
 
 
@@ -106,25 +109,43 @@
 
       function showProject(projectNumber) {
         const projects = document.getElementsByClassName('project-slide1');
-        console.log(projectNumber)
-        console.log(projects.length)
+        let projectLeft = projectNumber-1;
+        let projectRight = projectNumber+1;
 
-        if (projectNumber > projects.length) {
+        if (projectNumber > projects.length || projectNumber === 1) {
           project = 1;
-        }
-        if (projectNumber < 1) {
+          projectLeft = projects.length;
+          projectRight = 2;
+        } else if (projectNumber === projects.length || projectNumber < 1) {
           project = projects.length;
+          projectLeft = projects.length-1;
+          projectRight = 1;
         }
-
         for (let i = 0; i < projects.length; i++) {
-          projects[i].style.display = 'none';
+          projects[i].classList.remove('project-left');
+          projects[i].classList.remove('project-center');
+          projects[i].classList.remove('project-right');
         }
 
-        projects[project-1].style.display = 'block';
+
+          document.getElementById(''+project).classList.add('project-center');
+          document.getElementById(''+projectLeft).classList.add('project-left');
+          document.getElementById(''+projectRight).classList.add('project-right');
       }
+
+
 
       function nextProject(number) {
         showProject(project += number);
+      }
+
+      function something() {
+
+        document.getElementById(''+number).style.display = 'block';
+        document.getElementById(''+number).style.left = '0';
+        document.getElementById(''+(number+1)).style.display = 'block';
+        document.getElementById(''+(number+1)).style.right = '0';
+
       }
 
       //----TODO----May cause performance issues find better solution
@@ -133,17 +154,19 @@
         scrollNav();
       })
       document.querySelector('.next').addEventListener('click', () => {
-        clearInterval(automaticScroll);
+        //number++;
+        //something();
+        //clearInterval(automaticScroll);
         nextProject(1);
       });
       document.querySelector('.previous').addEventListener('click', () => {
-        clearInterval(automaticScroll);
+        //clearInterval(automaticScroll);
         nextProject(-1);
       });
       //currently stops automatic scroll if next or previous buttons are clicked
-      let automaticScroll = window.setInterval(() => {
-        nextProject(1);
-      }, 5.0*1000);
+    //  let automaticScroll = window.setInterval(() => {
+      //  nextProject(1);
+      //}, 5.0*1000);
     </script>
   </body>
 </html>
