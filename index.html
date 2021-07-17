@@ -36,11 +36,11 @@
         </div>
       </div>
     </header>
-    <section id="projects">
+    <section id="projects" class="project7">
       <div class="project-slide1" id="1">
         <img src="./images/snowy-trees-copy.jpg" alt="">
-        <div class="project-description">
-          <h2>Project #1</h2>
+        <div class="tabpanel">
+            <h2>Project #1</h2>
           <p>Description</p>
         </div>
       </div>
@@ -139,6 +139,23 @@
         showProject(project += number);
       }
 
+      function scrollTransform() {
+        let element = document.querySelector('.project7');
+        let distanceFromTop = window.pageYOffset + element.getBoundingClientRect().top;
+        let elementHeight = element.offsetHeight;
+        let scrollTop = document.documentElement.scrollTop;
+
+        let position = 4;
+
+        let y = window.pageYOffset;
+        position = 100/y;
+
+        console.log(position)
+        let newElement = document.querySelector('.project-center');
+        //console.log(`translateZ(${position+'px'})`)
+        newElement.style.transform = `translateZ(${position+'px'})`;
+      }
+
       function something() {
 
         document.getElementById(''+number).style.display = 'block';
@@ -152,21 +169,22 @@
       window.addEventListener('scroll', () => {
         scrollFadeOut();
         scrollNav();
+        //scrollTransform();
       })
       document.querySelector('.next').addEventListener('click', () => {
         //number++;
         //something();
-        clearInterval(automaticScroll);
+        //clearInterval(automaticScroll);
         nextProject(1);
       });
       document.querySelector('.previous').addEventListener('click', () => {
-        clearInterval(automaticScroll);
+        //clearInterval(automaticScroll);
         nextProject(-1);
       });
       //currently stops automatic scroll if next or previous buttons are clicked
-      let automaticScroll = window.setInterval(() => {
-        nextProject(1);
-      }, 5.0*1000);
+      //let automaticScroll = window.setInterval(() => {
+      //  nextProject(1);
+      //}, 5.0*1000);
     </script>
   </body>
 </html>
