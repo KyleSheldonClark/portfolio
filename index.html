@@ -19,8 +19,8 @@
             <ul>
               <li><a href="#color-layer">Home</a></li>
               <li><a href="https://github.com/KyleSheldonClark" target="_blank">Github</a></li>
-              <li><a href="#" id="contact-link">Contact</a></li>
-              <li><a href="#projects" id="projects-link">Projects</a></li>
+              <li id="contact-link"><a href="#">Contact</a></li>
+              <li id="projects-link"><a href="#projects">Projects</a></li>
             </ul>
           </nav>
         </div>
@@ -124,9 +124,12 @@
         let elementHeight = element.offsetHeight;
         let scrollTop = document.documentElement.scrollTop;
 
-        if (distanceFromTop <= scrollTop) {
+        if (distanceFromTop-100 <= scrollTop) {
           document.getElementById('contact-link').style.display = 'none';
           document.getElementById('projects-link').style.display = 'flex';
+        } else if (distanceFromTop > scrollTop) {
+          document.getElementById('contact-link').style.display = 'flex';
+          document.getElementById('projects-link').style.display = 'none';
         }
       }
 
