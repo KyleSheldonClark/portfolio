@@ -11,13 +11,16 @@
   </head>
   <body>
     <header>
+      <div class="container">
+
       <div class="color-layer" id="color-layer">
         <div class="show-nav">
           <nav>
             <ul>
               <li><a href="#color-layer">Home</a></li>
               <li><a href="https://github.com/KyleSheldonClark" target="_blank">Github</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#" id="contact-link">Contact</a></li>
+              <li><a href="#projects" id="projects-link">Projects</a></li>
             </ul>
           </nav>
         </div>
@@ -36,7 +39,7 @@
         </div>
       </div>
     </header>
-    <section id="projects">
+    <section id="projects" class="projects">
       <div class="project-slide1" id="1">
         <img src="./images/snowy-trees-copy.jpg" alt="">
         <div class="tabpanel">
@@ -72,10 +75,11 @@
         <a class='fas fa-chevron-down'></a>
       </div>
     </section>
-    <section id="contact">
+    <section id="contact" class="contact">
       <a href="#">Github</a>
       <a href="#">Email</a>
     </section>
+  </div>
     <script type="text/javascript">
       let project = 1;
       //something();
@@ -100,7 +104,7 @@
         navBar.style.opacity = opacity;
       }
 
-      function scrollNav() {
+      function scrollShowNav() {
         let element = document.querySelector('.navigation');
         let distanceFromTop = window.pageYOffset + element.getBoundingClientRect().top;
         let elementHeight = element.offsetHeight;
@@ -111,6 +115,18 @@
           document.querySelector('.show-nav').style.display = 'flex';
         } else if (distanceFromTop > scrollTop) {
           document.querySelector('.show-nav').style.display = 'none';
+        }
+      }
+
+      function scrollChangeNav() {
+        let element = document.getElementById('contact');
+        let distanceFromTop = window.pageYOffset + element.getBoundingClientRect().top;
+        let elementHeight = element.offsetHeight;
+        let scrollTop = document.documentElement.scrollTop;
+
+        if (distanceFromTop <= scrollTop) {
+          document.getElementById('contact-link').style.display = 'none';
+          document.getElementById('projects-link').style.display = 'flex';
         }
       }
 
@@ -175,7 +191,8 @@
       //----TODO----May cause performance issues find better solution
       window.addEventListener('scroll', () => {
         scrollFadeOut();
-        scrollNav();
+        scrollShowNav();
+        scrollChangeNav();
         //scrollTransform();
       })
       document.querySelector('.next').addEventListener('click', () => {

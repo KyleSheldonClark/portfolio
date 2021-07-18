@@ -8,6 +8,11 @@ body {
   font-family: 'Roboto';
 }
 
+.container {
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
+}
+
 li {
   list-style-type: none;
 }
@@ -45,12 +50,16 @@ a {
   font-size: 2rem;
 }
 
+#projects-link {
+  display: none;
+}
 
 header {
   background-image: url('../images/snowy-trees-copy.jpg');
   background-attachment: fixed;
   height: 100vh;
   z-index: 5;
+  scroll-snap-align: center;
 }
 
 .arrow-container .fa-chevron-down {
@@ -234,13 +243,17 @@ h1 {
   width: 100vw;
   background-color: black;
   display: flex;
-
   flex-direction: row;
   justify-content: center;
   align-items: center;
   perspective: 1px;
   perspective-origin: 50%;
   overflow: hidden;
+}
+
+.projects {
+  scroll-snap-align: start;
+
 }
 
 .project-left {
@@ -325,5 +338,8 @@ h1 {
   width: 100vw;
   display: flex;
   background-color: orange;
+}
 
+.contact {
+  scroll-snap-align: start;
 }
