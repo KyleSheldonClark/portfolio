@@ -234,7 +234,7 @@ h1 {
   width: 100vw;
   background-color: black;
   display: flex;
-  position: absolute;
+
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -317,4 +317,13 @@ h1 {
   max-width: initial;
   width: 100%;
   object-position: 0;
+}
+
+/*----Contact----*/
+#contact {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  background-color: orange;
+
 }
