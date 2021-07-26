@@ -209,6 +209,7 @@ h1 {
 
 .next:hover, .previous:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .next:hover a, .previous:hover a{
